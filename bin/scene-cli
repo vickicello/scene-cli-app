@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require './lib/scene_concerts'
+
+require "bundler/setup"
+require "environment"
+
+SceneConcerts::CLI.new.call
