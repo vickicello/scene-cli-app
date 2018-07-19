@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
-
-require './lib/scene_concerts'
-
 require "bundler/setup"
-require "environment"
+require "environment.rb"
 
-SceneConcerts::CLI.new.call
+
+#require './scene_concerts/scene_concerts'
+
+Scene::CLI.new.call
+
+#this is my environment file
