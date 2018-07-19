@@ -12,7 +12,8 @@ class Scene::Concert
   end
 
   def self.scrape
-    doc = Nokogiri::HTML(open(https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today))
+    url = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today"
+    doc = Nokogiri::HTML(open(url))
     concert = self.new
     concert.name = doc.search("").text.strip
     concert.genre = doc.search("").text.strip
