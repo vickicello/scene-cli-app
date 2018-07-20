@@ -1,30 +1,20 @@
 class Scene::Concert
 
-  attr_accessor :name, :genre, :time, :price, :venue, :address, :neighborhood, :phone
+  attr_accessor :name, :genre, :time, :price, :url, :venue, :address, :neighborhood, :phone
 
-  @@concerts = []
+  @@all = []
 
 
-  def self.scrape_concerts
-    @concerts = []
-    @concerts << self.scrape
-     @concerts
+  def initialize(name, genre, time, price, url)
+    @name = name
+    @genre = genre
+    @time = time
+    @price = price
+    @url = url
+    @@all << self
   end
 
-  def self.scrape
-    url = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today"
-    doc = Nokogiri::HTML(open(url))
-    concert = self.new
-    concert.name = doc.search("").text.strip
-    concert.genre = doc.search("").text.strip
-    concert.time = doc.search("").text.strip
-    concert.price = doc.search("").first.attr("").strip
-    concert.venue = doc.search("").text.strip
-    concert.address = doc.search("").text.strip
-    concert.neighborhood = doc.search("").text.strip
-    concert.contact = doc.search("").text.strip
-    concert
+  def self.all
+    @@all
   end
-
-
 end
