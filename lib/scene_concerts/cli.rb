@@ -2,18 +2,12 @@ class Scene::CLI
 
 
   def call
+    puts "Welcome to the Scene CLI app!"
     list_concerts
     menu
     goodbye
-    puts "Hey!"
   end
 
-
-  #      @deals = DailyDeal::Deal.today
-  #      @deals.each.with_index(1) do |deal, i|
-  #        puts "#{i}. #{deal.name} - #{deal.price} - #{deal.availability}"
-  #      end
-  #    end
 
   def list_concerts
     puts "Today's concerts are:"
@@ -26,7 +20,7 @@ class Scene::CLI
    def menu
      input = nil
      while input != "exit"
-       puts "Please enter the number of a listed concert for address, neighborhood, and phone number. To list concerts again, enter list. To exit, type exit."
+       puts "Please enter the number of a listed concert for more information. To list concerts again, type list. To exit, type exit."
        input = gets.strip.downcase
 
        if input.to_i > 0
@@ -39,16 +33,6 @@ class Scene::CLI
         end
       end
     end
-
-
-          # when “1”
-		      #   puts "Address: #{concert_1_address}, Neighborhood: #{concert_1_neighborhood},
-          #        Phone: call #{concert_1_phone} for more information." #should build a nested hash for this info
-          # when “2”
-          #   puts "Address: #{concert_1_address}, Neighborhood: #{concert_1_neighborhood},
-          #        Phone: call #{concert_1_phone} for more information." #should build a nested hash for this info
-	        # when “exit”
-
 
     def goodbye
 	     puts "Check back tomorrow for more exciting concerts!"
