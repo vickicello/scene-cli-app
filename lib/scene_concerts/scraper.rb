@@ -6,6 +6,8 @@ puts "I am the scraper file!"
 
   def self.scrape_concerts
     doc = Nokogiri::HTML(open(URL))
+
+    binding.pry
     doc.css("").each do |concert|
       name = concert.css("").text.strip
       genre = doc.search("").text.strip

@@ -12,7 +12,8 @@ puts "I am the cli file!"
 
   def list_concerts
     puts "Today's concerts are:"
-    @concerts = Scene::Concert.scrape_concerts
+    Scene::Scraper.scrape_concerts
+    @concerts = Scene::Concert.all
     @concerts.each.with_index(1) do |concert, i|
       puts "#{i}. #{concert.name} - #{concert.genre}, #{concert.time}, #{concert.price}. Venue - #{concert.venue}"
     end
