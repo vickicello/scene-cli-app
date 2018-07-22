@@ -2,6 +2,8 @@ class Scene::Scraper
 
 URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today"
 
+puts "I am a walrus!"
+
   def self.scrape_concerts
     doc = Nokogiri::HTML(open(URL))
     doc.css("").each do |concert|

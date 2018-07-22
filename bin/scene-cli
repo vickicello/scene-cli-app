@@ -1,8 +1,9 @@
-#!/usr/bin/env ruby
+#!/usr/local/bin ruby
+
 require "bundler/setup"
-require "environment.rb"
+require_relative "../lib/environment"
 
 
-#Scene::CLI.new.call
+Scene::CLI.new.call
 
 #this is my environment file
