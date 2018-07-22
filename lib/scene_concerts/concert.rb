@@ -4,7 +4,7 @@ class Scene::Concert
 
   @@all = []
 
-
+puts "I am the conert file!"
   def initialize(name, genre, time, price, venue, url)
     @name = name
     @genre = genre

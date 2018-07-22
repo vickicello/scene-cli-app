@@ -1,5 +1,7 @@
 class Scene::CLI
 
+puts "I am the cli file!"
+
   def call
     puts "Welcome to the Scene CLI app!"
     list_concerts
