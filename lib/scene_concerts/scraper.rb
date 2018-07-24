@@ -15,13 +15,10 @@ URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowBy
   def self.scrape_details(concert)
     url = concert.url
     doc = Nokogiri::HTML(open(url))
-    binding.pry
-    # need to drill down more, not sure how, on 'time = '
-    # time = concert.css(".EventListing").css(".clearfix").css(".listing").text.strip
-    concert.time = doc.css("").text.strip
-    concert.address = doc.css("").text.strip
-    concert.neighborhood = doc.css("").text
-    concert.phone = doc.css("").text.strip
+    concert.time = doc.css("#gridMainColumn").css("#EventMetaData").css(".eventInfo").css(".eventWhen").text.strip
+    concert.address = doc.css("#EventLocation").css(".street-address").text.strip
+    concert.neighborhood = doc.css("#EventLocation").css(".locationRegion").text.strip
+    concert.phone = doc.css("#EventLocation").css(".locationPhone .value").text.strip
   end
 end
 

@@ -27,6 +27,7 @@ class Scene::CLI
       if input.to_i > 0
         concert = @concerts[input.to_i - 1]
           puts "Here are the details:"
+          Scene::Scraper.scrape_details(concert)
           puts "#{concert.time} - #{concert.address} - #{concert.neighborhood} - #{concert.phone}."
 
         elsif input == "list"
@@ -40,7 +41,7 @@ class Scene::CLI
     end
 
     # elsif !concert.time || !concert.address || !concert.neighborhood || !concert.phone
-    #      Scene::Scraper.scrape_concert_details(concert)
+    #      Scene::Scraper.scrape_details(concert)
     #    end
     # concert = Scene::Concert.all[index]
     # elsif input.to_i > 0
