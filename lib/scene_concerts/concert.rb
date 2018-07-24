@@ -1,11 +1,10 @@
 class Scene::Concert
 
-  attr_accessor :name, :price, :venue, :url, :time, :description, :address, :neighborhood, :phone
+  attr_accessor :name, :price, :venue, :url, :time, :address, :neighborhood, :phone
 
   @@all = []
 
-puts "I am the conert file!"
-  def initialize(name, price, venue, url)
+  def initialize(name = nil, price = nil, venue = nil, url = nil)
     @name = name
     @price = price
     @venue = venue
@@ -16,4 +15,21 @@ puts "I am the conert file!"
   def self.all
     @@all
   end
+
+  def time
+    @time ||= doc.css("").text
+  end
+
+  def address
+    @address ||= doc.css("").text
+  end
+
+  def neighborhood
+    @neighborhood ||= doc.css("").text
+  end
+
+  def phone
+    @phone ||= doc.css("").text
+  end
+
 end

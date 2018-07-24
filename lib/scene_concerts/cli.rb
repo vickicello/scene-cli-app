@@ -1,89 +1,45 @@
 class Scene::CLI
 
-puts "I am the cli file!"
-
   def call
     puts "Welcome to the Scene CLI app!"
     list_concerts
     menu
-    goodbye
+    # goodbye
   end
 
-
   def list_concerts
+    puts ""
     puts "Today's concerts are:"
-    Scene::Scraper.scrape_concerts
+    # Scene::Scraper.scrape_concerts
     @concerts = Scene::Concert.all
     @concerts.each.with_index(1) do |concert, i|
       puts "#{i}. #{concert.name} - #{concert.price} - #{concert.venue}"
-      # @concerts
     end
+    puts ""
    end
 
    def menu
      input = nil
      while input != "exit"
-       puts "Please enter the number of a listed concert for more information. To list concerts again, type list. To exit, type exit."
-       input = gets.strip.downcase
+       puts "Please enter the number of a listed concert for more information."
+       puts ""
+       puts "To list concerts again, type list. To exit, type exit."
+       input = gets.strip
 
-       if input.to_i > 0
+       if input == "list"
+         list_concerts
+       elsif input.to_i > 0
          the_concert = @concerts[input.to_i - 1]
-         puts "#{i}. #{concert.name} - #{concert.price} - #{concert.venue}"
-        elsif input == "list"
-          	list_concerts
+         puts "#{i}. #{concert.name} - #{concert.time} - #{concert.address} - #{concert.neighborhood} - #{concert.phone}."
         else
          puts "I'm not sure what you mean. Please enter list or exit."
         end
       end
+      goodbye
     end
 
-    def goodbye
+     def goodbye
 	     puts "Check back tomorrow for more exciting concerts!"
      end
 
-
 end
-
-
-#{concert.genre}, #{concert.time},
-
-# class GamesReview::CLI
-#
-#   def start
-#     puts "Welcome to games reviews"
-#     puts ""
-#
-#     #display a list of the games
-#     GamesReview::Scraper.scrape_games
-#     main_menu
-#   end
-#
-#   def main_menu
-#     puts "Here are all the games that are reviewed!"
-#     puts ""
-#
-#     games = GamesReview::Game.all
-#
-#     games.each.with_index(1) do |game, index|
-#       puts "#{index}. #{game.title}"
-#     end
-#
-#     puts ""
-#     puts "Please select a game to view additional details:"
-#
-#     input = gets.strip
-#     index = input.to_i - 1
-#
-#     game = GamesReview::Game.all[index]
-#     if !game.rating || !game.description
-#       GamesReview::Scraper.scrape_game_details(game)
-#     end
-#
-#     puts "Here are the details:"
-#
-#     puts game.rating
-#     puts game.description
-#
-#     main_menu
-#   end
-# end

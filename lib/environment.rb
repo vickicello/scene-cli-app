@@ -2,7 +2,6 @@ module Scene
 
 end
 
-puts "Hey environment file!"
 
 require 'nokogiri'
 require 'open-uri'
