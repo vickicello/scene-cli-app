@@ -4,7 +4,6 @@ class Scene::CLI
     puts "Welcome to the Scene CLI app!"
     list_concerts
     menu
-    goodbye
   end
 
   def list_concerts
@@ -32,11 +31,12 @@ class Scene::CLI
 
         elsif input == "list"
           list_concerts
+        elsif input == "exit"
+          goodbye
         else
          puts "I'm not sure what you mean. Please enter list or exit."
         end
       end
-      goodbye
     end
 
     # elsif !concert.time || !concert.address || !concert.neighborhood || !concert.phone

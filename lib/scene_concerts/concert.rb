@@ -1,6 +1,6 @@
 class Scene::Concert
 
-  attr_accessor :name, :price, :time, :venue, :url, :address, :neighborhood, :phone
+  attr_accessor :name, :price, :venue, :url, :time, :address, :neighborhood, :phone
 
   @@all = []
 
