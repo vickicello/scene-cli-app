@@ -4,15 +4,13 @@ URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowBy
 
   def self.scrape_concerts
     doc = Nokogiri::HTML(open(URL))
-    doc.css(".EventListing").css(".clearfix").each do |event|
-      name = event.css(".EventListing").css(".clearfix").css("h3 a")[2].text.strip
-      price = event.css(".EventListing").css(".clearfix").css(".price").text.strip
-      venue = event.css(".EventListing").css(".clearfix").css(".listingLocation a").text.strip
-      url = event.css(".EventListing").css(".clearfix").css("h3 a")[2].attribute("href").value
+    doc.css(".EventListing").css(".clearfix").each do |concert|
+      name = concert.css(".EventListing").css(".clearfix").css("h3 a")[2].text.strip
+      price = concert.css(".EventListing").css(".clearfix").css(".price").text.strip
+      venue = concert.css(".EventListing").css(".clearfix").css(".listingLocation a").text.strip
+      url = concert.css(".EventListing").css(".clearfix").css("h3 a")[2].attribute("href").value
       Scene::Concert.new(name, price, venue, url)
-    end
   end
-
 
   def self.scrape_details(concert)
     url = concert.url
@@ -24,4 +22,6 @@ URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowBy
     concert.neighborhood = doc.css("").text
     concert.phone = doc.css("").text.strip
   end
+end
+
 end
