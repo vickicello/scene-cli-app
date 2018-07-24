@@ -2,26 +2,22 @@ class Scene::Scraper
 
 URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today"
 
-puts "I am the scraper file!"
-
   def self.scrape_concerts
     doc = Nokogiri::HTML(open(URL))
-
-    binding.pry
-    doc.css("").each do |concert|
-      name = concert.css("").text.strip
-      genre = doc.search("").text.strip
-      time = doc.search("").text.strip
-      price = doc.search("").first.attr("").strip
-      venue = doc.search("").text.strip
-      url = concert.css('.item-title a').attribute('href').value
-      Scene::Concert.new(name, genre, time, price, url)
+    doc.css(".EventListing").css(".clearfix").each do |event|
+      concert = Scene::Concert.new(name, price, venue, url)
+      concert.name = event.css(".EventListing").css(".clearfix").css("h3 a")[2].text.strip
+      concert.price = event.css(".EventListing").css(".clearfix").css(".price").text.strip
+      concert.venue = event.css(".EventListing").css(".clearfix").css(".listingLocation a").text.strip
+      concert.url = event.css(".EventListing").css(".clearfix").css("h3 a")[2].attribute("href").value
     end
   end
 
   def self.scrape_details(concert)
     url = concert.url
     doc = Nokogiri::HTML(open(url))
+    # need to drill down more, not sure how, on 'time = '
+    # time = concert.css(".EventListing").css(".clearfix").css(".listing").text.strip
     concert.description = doc.css("").text.strip
     concert.address = doc.css("").text.strip
     concert.neighborhood = doc.css("").text

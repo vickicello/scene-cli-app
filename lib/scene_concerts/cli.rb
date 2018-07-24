@@ -15,7 +15,8 @@ puts "I am the cli file!"
     Scene::Scraper.scrape_concerts
     @concerts = Scene::Concert.all
     @concerts.each.with_index(1) do |concert, i|
-      puts "#{i}. #{concert.name} - #{concert.genre}, #{concert.time}, #{concert.price}. Venue - #{concert.venue}"
+      puts "#{i}. #{concert.name} - #{concert.price} - #{concert.venue}"
+      # @concerts
     end
    end
 
@@ -27,7 +28,7 @@ puts "I am the cli file!"
 
        if input.to_i > 0
          the_concert = @concerts[input.to_i - 1]
-         puts "#{i}. #{concert.name} - #{concert.genre}, #{concert.time}, #{concert.price}. Venue - #{concert.venue}"
+         puts "#{i}. #{concert.name} - #{concert.price} - #{concert.venue}"
         elsif input == "list"
           	list_concerts
         else
@@ -42,6 +43,9 @@ puts "I am the cli file!"
 
 
 end
+
+
+#{concert.genre}, #{concert.time},
 
 # class GamesReview::CLI
 #
