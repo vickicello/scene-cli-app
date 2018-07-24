@@ -40,14 +40,6 @@ class Scene::CLI
       end
     end
 
-    # elsif !concert.time || !concert.address || !concert.neighborhood || !concert.phone
-    #      Scene::Scraper.scrape_details(concert)
-    #    end
-    # concert = Scene::Concert.all[index]
-    # elsif input.to_i > 0
-    # the_concert = concerts[input.to_i - 1]
-    # puts "#{i}. #{concert.name} - #{concert.time} - #{concert.address} - #{concert.neighborhood} - #{concert.phone}."
-
      def goodbye
 	     puts "Check back tomorrow for more exciting concerts!"
      end

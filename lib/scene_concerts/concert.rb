@@ -16,20 +16,4 @@ class Scene::Concert
     @@all
   end
 
-  def time
-    @time ||= doc.css("").text
-  end
-
-  def address
-    @address ||= doc.css("").text
-  end
-
-  def neighborhood
-    @neighborhood ||= doc.css("").text
-  end
-
-  def phone
-    @phone ||= doc.css("").text
-  end
-
 end
