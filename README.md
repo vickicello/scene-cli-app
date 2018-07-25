@@ -1,8 +1,6 @@
 # Scene::Cli::App
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/scene/cli/app`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This Ruby Gem provides a CLI to view daily concerts that are happening in Cleveland, OH, as per the Cleveland Scene website.  
 
 ## Installation
 
@@ -20,9 +18,11 @@ Or install it yourself as:
 
     $ gem install scene-cli-app
 
+    The scene-cli CLI will be installed and you can run ./bin/scene-cli to see a list of concerts happening today in Cleveland, OH.
+
 ## Usage
 
-TODO: Write usage instructions here
+Run: scene-cli after installing the gem.
 
 ## Development
 

@@ -10,6 +10,7 @@ URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowBy
       venue = concert.css(".listingLocation a")[0].text
       url = concert.css("h3 a")[2].attribute("href").value
       Scene::Concert.new(name, price, venue, url)
+    end
   end
 
   def self.scrape_details(concert)
@@ -20,6 +21,6 @@ URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowBy
     concert.neighborhood = doc.css("#EventLocation").css(".locationRegion").text.strip
     concert.phone = doc.css("#EventLocation").css(".locationPhone .value").text.strip
   end
-end
+
 
 end
