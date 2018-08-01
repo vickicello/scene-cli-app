@@ -1,6 +1,6 @@
 class Scene::Scraper
 
-URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today"
+  URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowByDate=Today"
 
   def self.scrape_concerts
     doc = Nokogiri::HTML(open(URL))
@@ -16,11 +16,10 @@ URL = "https://www.clevescene.com/cleveland/EventSearch?feature=Concert&narrowBy
   def self.scrape_details(concert)
     url = concert.url
     doc = Nokogiri::HTML(open(url))
-    concert.time = doc.css("#gridMainColumn").css("#EventMetaData").css(".eventInfo").css(".eventWhen").text.strip
-    concert.address = doc.css("#EventLocation").css(".street-address").text.strip
-    concert.neighborhood = doc.css("#EventLocation").css(".locationRegion").text.strip
-    concert.phone = doc.css("#EventLocation").css(".locationPhone .value").text.strip
+      concert.time = doc.css("#gridMainColumn").css("#EventMetaData").css(".eventInfo").css(".eventWhen").text.strip
+      concert.address = doc.css("#EventLocation").css(".street-address").text.strip
+      concert.neighborhood = doc.css("#EventLocation").css(".locationRegion").text.strip
+      concert.phone = doc.css("#EventLocation").css(".locationPhone .value").text.strip
   end
-
 
 end
