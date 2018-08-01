@@ -24,12 +24,12 @@ class Scene::CLI
       puts "To list concerts again, type list. To exit, type exit."
       input = gets.strip
 
-      if input.to_i > 0
-        concert = @concerts[input.to_i - 1]
+      if input.to_i > 0 && input.to_i <= @concerts.count
+      concert = @concerts[input.to_i - 1]
         puts "Here are the details:"
         Scene::Scraper.scrape_details(concert)
         puts "#{concert.time} - #{concert.address} - #{concert.neighborhood} - #{concert.phone}."
-
+        binding.pry
       elsif input == "list"
         list_concerts
       elsif input == "exit"
